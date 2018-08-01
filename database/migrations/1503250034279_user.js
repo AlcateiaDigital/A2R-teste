@@ -6,8 +6,14 @@ class UserSchema extends Schema {
   up () {
     this.create('users', (table) => {
       table.increments()
-      table.string('username', 80).notNullable().unique()
+      table.string('first_name', 80).notNullable()
+      table.string('last_name', 80).notNullable()
+      table.integer('account_id').unsigned().references('id').inTable('accounts')
+      .onUpdate('CASCADE').onDelete('CASCADE')
       table.string('email', 254).notNullable().unique()
+      table.string('avatar')
+      table.boolean('status')
+      table.enum('role', ['master', 'super_admin', 'admin', 'operator', 'customer'])
       table.string('password', 60).notNullable()
       table.timestamps()
     })
