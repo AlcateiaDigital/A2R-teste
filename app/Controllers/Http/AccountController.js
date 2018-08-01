@@ -24,10 +24,10 @@ class AccountController {
   }
 
 
-  async show ({ params, request }) {
-    
+  async show ({ params, request, auth }) {
+    const user = auth.user
+    const roles = await user.getRoles()
     const account = await Account.findByOrFail('secure_id', params.id)
-
     return account
   }
 

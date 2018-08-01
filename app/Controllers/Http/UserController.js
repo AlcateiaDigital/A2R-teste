@@ -4,6 +4,14 @@ const User = use('App/Models/User')
 
 class UserController {
 
+  async index ({ request }) {
+
+    const users = User.all()
+
+
+    return users
+  }
+
   async store ({ request, response }) {
     const data = request.only(["first_name", "last_name", "email", "password", "status", "avatar"])
     const user = await User.create(data)
