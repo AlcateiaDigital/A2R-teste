@@ -12,6 +12,7 @@ class StoreAccount {
     return {
       'name': 'string|required|max:80',
       'legal_name': 'string',
+      'type': 'string|required',
       'resp_name': 'required|string',
       'resp_document_type': 'string',
       'resp_document_number': 'string',

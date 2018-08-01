@@ -18,21 +18,31 @@ class AccountController {
   async store ({ request, response }) {
     const data = request.all()
 
-    const account = await Account.create({ ...data, type: 'seller'})
+    const account = await Account.create({ ...data})
 
     return account
   }
 
 
-  async show ({ params, request, response, view }) {
+  async show ({ params, request }) {
+    
+    const account = await Account.findByOrFail('secure_id', params.id)
+
+    return account
   }
 
 
   async update ({ params, request, response }) {
+    const data = request.all()
+    const account = await Account.findByOrFail('secure_id', params.id)
+
+    account.merge(data)
+
+    await account.save()
+
+    return account
   }
 
-  async destroy ({ params, request, response }) {
-  }
 }
 
 module.exports = AccountController

@@ -2,8 +2,22 @@
 
 const Model = use('Model')
 const Database = use('Database')
-
+const uuidv4 = require('uuid/v4');
 class Account extends Model {
+
+  static boot () {
+    super.boot()
+
+    /**
+     * A hook to hash the user password before saving
+     * it to the database.
+     */
+    this.addHook('beforeSave', async (accountInstance) => {
+      if (!accountInstance.dirty.secure_id) {
+        accountInstance.secure_id = uuidv4()
+      }
+    })
+  }
 
   users () {
     return this.hasMany('App/Models/User')
@@ -23,6 +37,10 @@ class Account extends Model {
       .orderBy('distance')
   }
 
+  static get hidden () {
+    return ['id']
+  }
+  
 }
 
 module.exports = Account

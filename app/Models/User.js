@@ -2,7 +2,7 @@
 
 const Model = use('Model')
 const Hash = use('Hash')
-
+const uuidv4 = require('uuid/v4');
 class User extends Model {
   static boot () {
     super.boot()
@@ -12,6 +12,9 @@ class User extends Model {
      * it to the database.
      */
     this.addHook('beforeSave', async (userInstance) => {
+      if (!userInstance.dirty.secure_id) {
+        userInstance.secure_id = uuidv4()
+      }
       if (userInstance.dirty.password) {
         userInstance.password = await Hash.make(userInstance.password)
       }
@@ -24,7 +27,15 @@ class User extends Model {
       '@provider:Adonis/Acl/HasPermission'
     ]
   }
-  
+  roles () {
+    return this.hasMany('Adonis/Acl/Role')
+  }
+  permissions () {
+    return this.hasMany('Adonis/Acl/Permission')
+  }
+  static get hidden () {
+    return ['password', 'id']
+  }
   /**
    * A relationship on tokens is required for auth to
    * work. Since features like `refreshTokens` or

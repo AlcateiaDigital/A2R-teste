@@ -6,6 +6,7 @@ class AccountSchema extends Schema {
   up () {
     this.create('accounts', (table) => {
       table.increments()
+      table.string('secure_id').notNullable().unique()
       table.string('name', 80).notNullable()
       table.enum('type', ['seller', 'customer', 'staff'])
       table.string('legal_name', 80)
