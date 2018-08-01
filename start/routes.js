@@ -6,7 +6,7 @@ Route
 .group(() => {
 
     Route
-    .get('users', 'UserController.index').middleware(['is:master'])
+    .get('users', 'UserController.index').middleware(['is:(master || seller) && !customer'])
     Route
     .get('users/:id', 'UserController.show')
     Route
