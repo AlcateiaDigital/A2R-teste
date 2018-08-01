@@ -15,6 +15,12 @@
 
 const Route = use('Route')
 
-Route.get('/', ({ request }) => {
-  return { greeting: 'Hello world in JSON' }
-})
+Route.post('/oauth/token', 'AuthController.store')
+Route.resource('users', 'UserController').apiOnly()
+Route
+  .resource('accounts', 'AccountController')
+  .apiOnly()
+  .validator(new Map([
+    [['accounts.store'], ['StoreAccount']],
+    [['accounts.update'], ['UpdateAccount']]
+  ]))
