@@ -6,12 +6,17 @@ Route
 .group(() => {
 
   Route
+  .resource('seller-categories', 'SellerCategoryController')
+  .apiOnly()
+  .middleware(['is:(seller || master)'])
+
+  Route
   .post('sellers', 'SellerController.store')
   Route
   .put('sellers/:id', 'SellerController.update')
 
     Route
-    .get('users', 'UserController.index').middleware(['is:(master || seller) && !customer'])
+    .get('users', 'UserController.index').middleware(['is:(master || seller)'])
     Route
     .get('users/:id', 'UserController.show')
     Route
