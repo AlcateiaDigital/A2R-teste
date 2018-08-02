@@ -34,13 +34,27 @@ class AccountController {
 
   async update ({ params, request, response }) {
     const data = request.all()
-    const account = await Account.findByOrFail('secure_id', params.id)
+    const user = auth.user
+    const roles = await user.getRoles()
 
-    account.merge(data)
+    try {
+    
+      const account = await Account.findByOrFail('secure_id', params.id)
 
-    await account.save()
+      if (account.id === user.account_id || roles.includes("master")) {
+        account.merge(data)
 
-    return account
+        await account.save()
+
+        return account
+
+      } else {
+        throw 401
+      }
+
+    } catch (error) {
+      response.status(error).send();
+    }
   }
 
 }

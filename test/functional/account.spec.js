@@ -5,9 +5,18 @@ const Account = use('App/Models/Account')
 
 trait('Test/ApiClient')
 
+
 test('store account and user', async ({ client }) => {
+
+  const auth = await client
+  .post('oauth/token')
+  .send({
+    email: "easy@food.com",
+    password: "123456"
+  })
   const request = await client
     .post('accounts')
+    .header('Authorization', `${auth.type} ${auth.token}`)
     .send({
       name: 'Account store test',
       type: 'seller',

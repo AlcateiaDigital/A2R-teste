@@ -5,6 +5,11 @@ const Route = use('Route')
 Route
 .group(() => {
 
+  Route
+  .post('sellers', 'SellerController.store')
+  Route
+  .put('sellers/:id', 'SellerController.update')
+
     Route
     .get('users', 'UserController.index').middleware(['is:(master || seller) && !customer'])
     Route

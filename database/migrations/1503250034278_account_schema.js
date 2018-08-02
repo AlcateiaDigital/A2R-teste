@@ -8,7 +8,7 @@ class AccountSchema extends Schema {
       table.increments()
       table.string('secure_id').notNullable().unique()
       table.string('name', 80).notNullable()
-      table.enum('type', ['seller', 'customer', 'staff'])
+      table.enum('type', ['seller', 'staff'])
       table.string('legal_name', 80)
       table.string('resp_name', 80).notNullable()
       table.enum('resp_document_type', ['cpf', 'cnpj'])
@@ -27,8 +27,6 @@ class AccountSchema extends Schema {
       table.enum('address_country', ['BR']).notNullable().default('BR')
       table.decimal('latitude', 9, 6)
       table.decimal('longitude', 9, 6)
-      table.string('image_url')
-      table.integer('handling_limit_time')
       table.timestamps()
     })
   }

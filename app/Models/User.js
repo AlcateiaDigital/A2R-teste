@@ -27,6 +27,9 @@ class User extends Model {
       '@provider:Adonis/Acl/HasPermission'
     ]
   }
+  account () {
+    return this.belongsTo('App/Models/Account')
+  }
   roles () {
     return this.hasMany('Adonis/Acl/Role')
   }
