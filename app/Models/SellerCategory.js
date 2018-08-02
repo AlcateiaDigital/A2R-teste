@@ -22,6 +22,10 @@ class SellerCategory extends Model {
     return this.belongsTo('App/Models/Seller')
   }
 
+  static get hidden () {
+    return ['id', 'seller_id']
+  }
+
 }
 
 module.exports = SellerCategory

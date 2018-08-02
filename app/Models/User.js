@@ -38,7 +38,7 @@ class User extends Model {
     return this.hasMany('Adonis/Acl/Permission')
   }
   static get hidden () {
-    return ['password', 'id']
+    return ['password', 'id', 'account_id']
   }
   /**
    * A relationship on tokens is required for auth to

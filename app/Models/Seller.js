@@ -19,7 +19,7 @@ class Seller extends Model {
   }
 
   static get hidden () {
-    return ['id']
+    return ['id', 'account_id']
   }
 
 }
