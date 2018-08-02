@@ -37,25 +37,20 @@ class SellerController {
   async update ({ params, request, auth, response }) {
 
     const data = request.all()
+
     const user = auth.user
     const roles = await user.getRoles()
 
-    try {
+    const seller = await Seller.firstOrFail('secure_id', params.id)
 
-      const seller = await Seller.findByOrFail('secure_id', params.id)
+    if (seller.account_id === user.account_id || roles.includes("master")) {
 
-      if (seller.account_id === user.account_id || roles.includes("master")) {
+      seller.merge(data)
+      await seller.save()
 
-        seller.merge(data)
-        await seller.save()
-
-        return seller
-
-      } else {
-        throw 401
-      }
-    } catch (error) {
-      response.status(error).send();
+      return seller
+     } else {
+      response.status(401).send();
     }
   }
 

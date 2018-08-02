@@ -2,7 +2,8 @@
 
 const Model = use('Model')
 const Hash = use('Hash')
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4')
+
 class User extends Model {
   static boot () {
     super.boot()
@@ -12,7 +13,7 @@ class User extends Model {
      * it to the database.
      */
     this.addHook('beforeSave', async (userInstance) => {
-      if (!userInstance.dirty.secure_id) {
+      if (!userInstance.secure_id) {
         userInstance.secure_id = uuidv4()
       }
       if (userInstance.dirty.password) {

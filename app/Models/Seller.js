@@ -8,7 +8,7 @@ class Seller extends Model {
     super.boot()
 
     this.addHook('beforeSave', async (sellerInstance) => {
-      if (!sellerInstance.dirty.secure_id) {
+      if (!sellerInstance.secure_id) {
         sellerInstance.secure_id = uuidv4()
       }
     })

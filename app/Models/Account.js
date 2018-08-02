@@ -13,7 +13,7 @@ class Account extends Model {
      * it to the database.
      */
     this.addHook('beforeSave', async (accountInstance) => {
-      if (!accountInstance.dirty.secure_id) {
+      if (!accountInstance.secure_id) {
         accountInstance.secure_id = uuidv4()
       }
     })
@@ -21,6 +21,9 @@ class Account extends Model {
 
   users () {
     return this.hasMany('App/Models/User')
+  }
+  seller () {
+    return this.hasOne('App/Models/Seller')
   }
 
   static scopeNearBy (query, latitude, longitude, distance) {
@@ -40,7 +43,7 @@ class Account extends Model {
   static get hidden () {
     return ['id']
   }
-  
+
 }
 
 module.exports = Account
