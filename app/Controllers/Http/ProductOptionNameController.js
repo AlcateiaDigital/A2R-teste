@@ -1,8 +1,8 @@
 'use strict'
 
-const SellerCategory = use('App/Models/SellerCategory')
+const ProductOptionName = use('App/Models/ProductOptionName')
 
-class SellerCategoryController {
+class ProductOptionNameController {
 
   async index ({ request, response, view }) {
   }
@@ -11,7 +11,7 @@ class SellerCategoryController {
 
     const data = request.only(["name", "priority", "slug"])
 
-    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+    const seller = await Product.findByOrFail('account_id', auth.user.account_id)
     const sellerCategory = await SellerCategory.create({ ...data, seller_id: seller.id })
 
     return sellerCategory
@@ -55,8 +55,6 @@ class SellerCategoryController {
 
     return sellerCategory
   }
-  async destroy ({ params, request, response }) {
-  }
 }
 
-module.exports = SellerCategoryController
+module.exports = ProductOptionNameController

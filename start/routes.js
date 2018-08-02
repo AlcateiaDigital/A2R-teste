@@ -6,6 +6,11 @@ Route
 .group(() => {
 
   Route
+  .resource('categories', 'CategoryController')
+  .apiOnly()
+  .middleware(['is:(seller || master)'])
+
+  Route
   .resource('seller-categories', 'SellerCategoryController')
   .apiOnly()
   .middleware(['is:(seller || master)'])

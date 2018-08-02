@@ -1,8 +1,9 @@
 'use strict'
 
 const Model = use('Model')
+const uuidv4 = require('uuid/v4')
 
-class SellerCategory extends Model {
+class Category extends Model {
   static boot () {
     super.boot()
 
@@ -10,9 +11,9 @@ class SellerCategory extends Model {
      * A hook to hash the user password before saving
      * it to the database.
      */
-    this.addHook('beforeSave', async (sellerCategoryInstance) => {
-      if (!sellerCategoryInstance.secure_id) {
-        sellerCategoryInstance.secure_id = uuidv4()
+    this.addHook('beforeSave', async (categoryInstance) => {
+      if (!categoryInstance.secure_id) {
+        categoryInstance.secure_id = uuidv4()
       }
     })
   }
@@ -24,6 +25,7 @@ class SellerCategory extends Model {
   static get hidden () {
     return ['id', 'seller_id']
   }
+
 }
 
-module.exports = SellerCategory
+module.exports = Category

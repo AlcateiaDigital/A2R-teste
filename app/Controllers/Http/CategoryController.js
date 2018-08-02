@@ -1,10 +1,12 @@
 'use strict'
 
-const SellerCategory = use('App/Models/SellerCategory')
+const Category = use('App/Models/Category')
+const Seller = use('App/Models/Seller')
 
-class SellerCategoryController {
+class CategoryController {
 
   async index ({ request, response, view }) {
+
   }
 
   async store ({ request, auth, response }) {
@@ -12,9 +14,9 @@ class SellerCategoryController {
     const data = request.only(["name", "priority", "slug"])
 
     const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
-    const sellerCategory = await SellerCategory.create({ ...data, seller_id: seller.id })
+    const category = await Category.create({ ...data, seller_id: seller.id })
 
-    return sellerCategory
+    return category
   }
 
 
@@ -23,13 +25,13 @@ class SellerCategoryController {
 
     const seller = await Seller.findByOrFail('account_id', userLogged.account_id)
 
-    const sellerCategory = await SellerCategory
+    const category = await category
     .query()
     .where('seller_id', seller.id)
     .firstOrFail('secure_id', params.id)
 
 
-    return sellerCategory
+    return category
   }
 
 
@@ -44,19 +46,20 @@ class SellerCategoryController {
 
     const seller = await Seller.findByOrFail('account_id', userLogged.account_id)
 
-    const sellerCategory = await SellerCategory
+    const category = await Category
     .query()
     .where('seller_id', seller.id)
     .firstOrFail('secure_id', params.id)
 
-    sellerCategory.merge(data)
+    category.merge(data)
 
-    await sellerCategory.save()
+    await category.save()
 
-    return sellerCategory
+    return category
   }
+
   async destroy ({ params, request, response }) {
   }
 }
 
-module.exports = SellerCategoryController
+module.exports = CategoryController
