@@ -6,6 +6,11 @@ class ProductOptionNameSchema extends Schema {
   up () {
     this.create('product_option_names', (table) => {
       table.increments()
+      table.string('name').notNullable()
+      table.integer('product_id').unsigned().references('id').inTable('products')
+      .onUpdate('CASCADE').onDelete('CASCADE')
+      table.integer('quantity').default(1)
+      table.boolean('required').default(true)
       table.timestamps()
     })
   }

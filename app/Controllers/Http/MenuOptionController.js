@@ -1,8 +1,9 @@
 'use strict'
 
-const SellerCategory = use('App/Models/SellerCategory')
+const MenuOption = use('App/Models/MenuOption')
+const Seller = use('App/Models/Seller')
 
-class SellerCategoryController {
+class MenuOptionController {
 
   async index ({ request, response, view }) {
   }
@@ -12,9 +13,9 @@ class SellerCategoryController {
     const data = request.only(["name", "priority", "slug"])
 
     const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
-    const sellerCategory = await SellerCategory.create({ ...data, seller_id: seller.id })
+    const menuOption = await MenuOption.create({ ...data, seller_id: seller.id })
 
-    return sellerCategory
+    return menuOption
   }
 
 
@@ -23,13 +24,13 @@ class SellerCategoryController {
 
     const seller = await Seller.findByOrFail('account_id', userLogged.account_id)
 
-    const sellerCategory = await SellerCategory
+    const menuOption = await menuOption
     .query()
     .where('seller_id', seller.id)
     .firstOrFail('secure_id', params.id)
 
 
-    return sellerCategory
+    return menuOption
   }
 
 
@@ -44,19 +45,20 @@ class SellerCategoryController {
 
     const seller = await Seller.findByOrFail('account_id', userLogged.account_id)
 
-    const sellerCategory = await SellerCategory
+    const menuOption = await menuOption
     .query()
     .where('seller_id', seller.id)
     .firstOrFail('secure_id', params.id)
 
-    sellerCategory.merge(data)
+    MenuOption.merge(data)
 
-    await sellerCategory.save()
+    await MenuOption.save()
 
-    return sellerCategory
+    return menuOption
   }
+  
   async destroy ({ params, request, response }) {
   }
 }
 
-module.exports = SellerCategoryController
+module.exports = MenuOptionController

@@ -1,57 +1,76 @@
 'use strict'
 
-/**
- * Resourceful controller for interacting with products
- */
+const Product = use('App/Models/Product')
+const Seller = use('App/Models/Seller')
+const Category = use('App/Models/Category')
+const MenuOption = use('App/Models/MenuOption')
+
 class ProductController {
-  /**
-   * Show a list of all products.
-   * GET products
-   */
+
   async index ({ request, response, view }) {
   }
 
-  /**
-   * Render a form to be used for creating a new product.
-   * GET products/create
-   */
-  async create ({ request, response, view }) {
+  async store ({ request, auth, response }) {
+
+    const dataProduct = request.only(["name", "description", "price", "status"])
+    const data = request.all()
+
+    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+
+    const category = await Category.findByOrFail('secure_id', data.category)
+
+    const menuOption = await MenuOption
+    .query()
+    .where('seller_id', seller.id)
+    .firstOrFail('secure_id', data.menuOption)
+
+    const product = await Product.create({ ...dataProduct, seller_id: seller.id, category_id: category.id, menu_option_id: menuOption.id})
+
+    return product
   }
 
-  /**
-   * Create/save a new product.
-   * POST products
-   */
-  async store ({ request, response }) {
+
+  async show ({ params, request, auth }) {
+    const userLogged = auth.user
+
+    const seller = await Seller.findByOrFail('account_id', userLogged.account_id)
+
+    const product = await Product
+    .query()
+    .where('seller_id', seller.id)
+    .firstOrFail('secure_id', params.id)
+
+
+    return product
   }
 
-  /**
-   * Display a single product.
-   * GET products/:id
-   */
-  async show ({ params, request, response, view }) {
+
+  async update ({ params, request, auth,  response }) {
+
+    const dataProduct = request.only(["name", "description", "price", "status"])
+
+    const data = request.all()
+
+    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+
+    const product = await Product
+    .query()
+    .where('seller_id', seller.id)
+    .firstOrFail('secure_id', params.id)
+/*
+    const category = await Category.findByOrFail('secure_id', data.category) */
+
+/*     const menuOption = await MenuOption
+    .query()
+    .where('seller_id', seller.id)
+    .firstOrFail('secure_id', data.menuOption) */
+    product.merge({...dataProduct, })
+
+    await product.save()
+    
+    return product
   }
 
-  /**
-   * Render a form to update an existing product.
-   * GET products/:id/edit
-   */
-  async edit ({ params, request, response, view }) {
-  }
-
-  /**
-   * Update product details.
-   * PUT or PATCH products/:id
-   */
-  async update ({ params, request, response }) {
-  }
-
-  /**
-   * Delete a product with id.
-   * DELETE products/:id
-   */
-  async destroy ({ params, request, response }) {
-  }
 }
 
 module.exports = ProductController

@@ -8,15 +8,20 @@ Route
   Route
   .resource('categories', 'CategoryController')
   .apiOnly()
-  .middleware(['is:(seller || master)'])
+  .middleware(['is:master'])
 
   Route
-  .resource('seller-categories', 'SellerCategoryController')
+  .resource('products', 'ProductController')
   .apiOnly()
   .middleware(['is:(seller || master)'])
 
   Route
-  .post('sellers', 'SellerController.store')
+  .resource('menu-options', 'MenuOptionController')
+  .apiOnly()
+  .middleware(['is:(seller || master)'])
+
+  Route
+  .post('sellers', 'SellerController.store').middleware(['is:(seller || master)'])
   Route
   .put('sellers/:id', 'SellerController.update')
 

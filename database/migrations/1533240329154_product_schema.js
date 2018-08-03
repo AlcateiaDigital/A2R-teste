@@ -6,11 +6,17 @@ class ProductSchema extends Schema {
   up () {
     this.create('products', (table) => {
       table.increments()
+      table.string('secure_id').notNullable().unique()
       table.string('name', 80).notNullable()
       table.string('description', 80).notNullable()
       table.integer('seller_id').unsigned().references('id').inTable('sellers')
       .onUpdate('CASCADE').onDelete('CASCADE')
+      table.integer('category_id').unsigned().references('id').inTable('categories')
+      .onUpdate('CASCADE').onDelete('CASCADE')
+      table.integer('menu_option_id').unsigned().references('id').inTable('menu_options')
+      .onUpdate('CASCADE').onDelete('CASCADE')
       table.decimal('price')
+      table.string('picture_url')
       table.enum('status', ['active', 'inactive']).notNullable()
       table.timestamps()
     })

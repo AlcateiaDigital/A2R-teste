@@ -2,9 +2,9 @@
 
 const Schema = use('Schema')
 
-class SellerCategorySchema extends Schema {
+class MenuOptionSchema extends Schema {
   up () {
-    this.create('seller_categories', (table) => {
+    this.create('menu_options', (table) => {
       table.increments()
       table.string('secure_id').notNullable().unique()
       table.integer('seller_id').unsigned().references('id').inTable('sellers')
@@ -17,8 +17,8 @@ class SellerCategorySchema extends Schema {
   }
 
   down () {
-    this.drop('seller_categories')
+    this.drop('menu_options')
   }
 }
 
-module.exports = SellerCategorySchema
+module.exports = MenuOptionSchema
