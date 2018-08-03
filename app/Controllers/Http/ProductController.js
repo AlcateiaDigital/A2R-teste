@@ -67,7 +67,6 @@ class ProductController {
     product.merge({...dataProduct, })
 
     await product.save()
-    
     return product
   }
 

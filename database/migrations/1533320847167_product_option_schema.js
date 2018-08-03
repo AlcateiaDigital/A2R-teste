@@ -6,11 +6,14 @@ class ProductOptionSchema extends Schema {
   up () {
     this.create('product_options', (table) => {
       table.increments()
-      table.string('name', 80).notNullable()
-      table.integer('product_option_name_id').unsigned().references('id').inTable('product_option_names')
+      table.string('secure_id').notNullable().unique()
+      table.string('name').notNullable()
+      table.integer('product_id').unsigned().references('id').inTable('products')
       .onUpdate('CASCADE').onDelete('CASCADE')
-      table.decimal('price').notNullable().default(0)
-      table.enum('status', ['active', 'inactive']).notNullable()
+      table.integer('seller_id').unsigned().references('id').inTable('sellers')
+      .onUpdate('CASCADE').onDelete('CASCADE')
+      table.integer('quantity').default(1)
+      table.boolean('required').default(true)
       table.timestamps()
     })
   }

@@ -1,20 +1,24 @@
 'use strict'
 
-const ProductOptionName = use('App/Models/ProductOptionName')
+const ProductOption = use('App/Models/ProductOption')
 
-class ProductOptionNameController {
+class ProductOptionController {
 
   async index ({ request, response, view }) {
   }
 
   async store ({ request, auth, response }) {
 
-    const data = request.only(["name", "priority", "slug"])
+    const dataProductOption = request.only(["name", "quantity", "required"])
+    const data = request.all()
 
     const seller = await Product.findByOrFail('account_id', auth.user.account_id)
-    const sellerCategory = await SellerCategory.create({ ...data, seller_id: seller.id })
+    const product = await Product.findByOrFail('secure_id', data.product)
 
-    return sellerCategory
+    const productOption = await ProductOption.create({ ...dataProductOption, product_id: product.id, seller_id: seller.id })
+
+    return productOption
+
   }
 
 
@@ -30,10 +34,8 @@ class ProductOptionNameController {
 
 
     return sellerCategory
+
   }
-
-
-
 
 
   async update ({ params, request, auth,  response }) {
@@ -54,7 +56,9 @@ class ProductOptionNameController {
     await sellerCategory.save()
 
     return sellerCategory
+
   }
+
 }
 
-module.exports = ProductOptionNameController
+module.exports = ProductOptionController

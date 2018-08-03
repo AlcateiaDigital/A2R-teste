@@ -2,16 +2,13 @@
 
 const Model = use('Model')
 const Database = use('Database')
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4')
 class Account extends Model {
 
   static boot () {
     super.boot()
 
-    /**
-     * A hook to hash the user password before saving
-     * it to the database.
-     */
+
     this.addHook('beforeSave', async (accountInstance) => {
       if (!accountInstance.secure_id) {
         accountInstance.secure_id = uuidv4()
