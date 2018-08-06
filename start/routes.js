@@ -23,6 +23,8 @@ Route
   Route
   .post('sellers', 'SellerController.store').middleware(['is:(seller || master)'])
   Route
+  .post('users/by-seller', 'UserController.addUser').middleware(['is:(seller || master)'])
+  Route
   .put('sellers/:id', 'SellerController.update')
 
     Route
@@ -58,6 +60,5 @@ Route
     .post('oauth/token', 'AuthController.store')
     Route
     .post('users', 'UserController.store')
-
   })
   .prefix('api/v1')

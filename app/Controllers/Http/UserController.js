@@ -13,8 +13,17 @@ class UserController {
   }
 
   async store ({ request, response }) {
+
     const data = request.only(["first_name", "last_name", "email", "password", "status", "avatar"])
     const user = await User.create(data)
+
+    return user
+  }
+
+  async addUser ({ request, auth, response }) {
+
+    const data = request.only(["first_name", "last_name", "email", "password", "status", "avatar"])
+    const user = await User.create({ ...data, account_id: auth.user.account_id})
 
     return user
   }
