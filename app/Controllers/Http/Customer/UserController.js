@@ -4,14 +4,6 @@ const User = use('App/Models/User')
 
 class UserController {
 
-  async index ({ request }) {
-
-    const users = User.all()
-
-
-    return users
-  }
-
   async store ({ request, response }) {
 
     const data = request.only(["first_name", "last_name", "email", "password", "status", "avatar"])
@@ -20,17 +12,12 @@ class UserController {
     return user
   }
 
-  async addUser ({ request, auth, response }) {
+  async show ({ params, auth, request }) {
 
-    const data = request.only(["first_name", "last_name", "email", "password", "status", "avatar"])
-    const user = await User.create({ ...data, account_id: auth.user.account_id})
-
-    return user
-  }
-
-  async show ({ params, request }) {
-
-    const user = await User.findByOrFail('secure_id', params.id)
+    const user = await User
+    .query()
+    .where('id', auth.user.id)
+    .firstOrFail('secure_id', params.id)
 
     return user
   }
@@ -39,7 +26,7 @@ class UserController {
     const data = request.all()
     const user = await User
     .query()
-    .where('account_id', auth.user.account_id)
+    .where('id', auth.user.id)
     .firstOrFail('secure_id', params.id)
 
     user.merge(data)

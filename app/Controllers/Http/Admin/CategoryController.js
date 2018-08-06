@@ -12,9 +12,7 @@ class CategoryController {
   async store ({ request, auth, response }) {
 
     const data = request.only(["name", "priority", "slug"])
-
-    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
-    const category = await Category.create({ ...data, seller_id: seller.id })
+    const category = await Category.create({ ...data })
 
     return category
   }

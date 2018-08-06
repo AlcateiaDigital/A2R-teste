@@ -5,37 +5,47 @@ const Route = use('Route')
 Route
 .group(() => {
 
+  // CATEGORY
   Route
-  .resource('categories', 'CategoryController')
+  .resource('categories', 'Admin/CategoryController')
   .apiOnly()
   .middleware(['is:master'])
 
+// PRODUCT
   Route
-  .resource('products', 'ProductController')
+  .resource('products', 'Seller/ProductController')
   .apiOnly()
   .middleware(['is:(seller || master)'])
 
+  // MENU OPTION
   Route
-  .resource('menu-options', 'MenuOptionController')
+  .resource('menu-options', 'Seller/MenuOptionController')
   .apiOnly()
   .middleware(['is:(seller || master)'])
 
+
+  // SELLER
   Route
-  .post('sellers', 'SellerController.store').middleware(['is:(seller || master)'])
-  Route
-  .post('users/by-seller', 'UserController.addUser').middleware(['is:(seller || master)'])
+  .post('sellers', 'Seller/SellerController.store').middleware(['is:(seller || master)'])
+
   Route
   .put('sellers/:id', 'SellerController.update')
 
-    Route
-    .get('users', 'UserController.index').middleware(['is:(master || seller)'])
+  // USER SELLER
+  Route
+  .resource('seller/users', 'Seller/UserController')
+  .apiOnly()
+  .middleware(['is:(seller || master)'])
+
+  // USER CUSTOMER
     Route
     .get('users/:id', 'UserController.show')
     Route
     .put('users/:id', 'UserController.update')
 
+    // ACCOUNT
     Route
-    .resource('accounts', 'AccountController')
+    .resource('accounts', 'Admin/AccountController')
     .apiOnly()
     .middleware(['is:master'])
     .validator(new Map([
@@ -60,5 +70,6 @@ Route
     .post('oauth/token', 'AuthController.store')
     Route
     .post('users', 'UserController.store')
+    
   })
   .prefix('api/v1')
