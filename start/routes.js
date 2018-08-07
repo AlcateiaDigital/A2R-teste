@@ -31,6 +31,9 @@ Route
   Route
   .put('sellers/:id', 'SellerController.update')
 
+  Route
+  .put('sellers/:id', 'SellerController.show')
+
   // USER SELLER
   Route
   .resource('seller/users', 'Seller/UserController')
@@ -70,6 +73,6 @@ Route
     .post('oauth/token', 'AuthController.store')
     Route
     .post('users', 'UserController.store')
-    
+
   })
   .prefix('api/v1')
