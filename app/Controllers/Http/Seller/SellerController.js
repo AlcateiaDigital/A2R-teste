@@ -28,9 +28,11 @@ class SellerController {
 
   async show ({ params, request, auth }) {
     const user = auth.user
-    const roles = await user.getRoles()
-    const seller = await Seller.findByOrFail('secure_id', params.id)
-    return account
+    const seller = await Seller
+    .query()
+    .where('account_id', user.account_id)
+    .firstOrFail('secure_id', params.id)
+    return seller
   }
 
 
