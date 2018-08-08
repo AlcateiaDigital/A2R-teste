@@ -5,22 +5,21 @@ const Account = use('App/Models/Account')
 class AccountController {
 
   async index ({ request }) {
+
     const { latitude, longitude } = request.all()
 
-    const accounts = Account.query()
-    .nearBy(latitude, longitude, 10)
-    .fetch()
-
-
+    const accounts = Account
+      .query()
+      .nearBy(latitude, longitude, 10)
+      .fetch()
     return accounts
   }
 
   async store ({ request, response }) {
     const data = request.all()
-
     const account = await Account.create({ ...data})
 
-    const seller = await account
+    await account
     .seller()
     .create({})
 
@@ -30,7 +29,7 @@ class AccountController {
 
   async show ({ params, request, auth }) {
     const user = auth.user
-    const roles = await user.getRoles()
+    await user.getRoles()
     const account = await Account.findByOrFail('secure_id', params.id)
     return account
   }
