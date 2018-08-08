@@ -1,53 +1,53 @@
-'use strict'
+'use strict';
 
-const Account = use('App/Models/Account')
+const Account = use('App/Models/Account');
 
 class AccountController {
 
   async index ({ request }) {
 
-    const { latitude, longitude } = request.all()
+    const { latitude, longitude } = request.all();
 
-    const accounts = Account
+    return Account
       .query()
       .nearBy(latitude, longitude, 10)
       .fetch()
-    return accounts
+
   }
 
   async store ({ request, response }) {
-    const data = request.all()
-    const account = await Account.create({ ...data})
+    const data = request.all();
+    const account = await Account.create({ ...data});
 
     await account
     .seller()
-    .create({})
+    .create({});
 
     return account
   }
 
 
   async show ({ params, request, auth }) {
-    const user = auth.user
-    await user.getRoles()
-    const account = await Account.findByOrFail('secure_id', params.id)
+    const user = auth.user;
+    await user.getRoles();
+    const account = await Account.findByOrFail('secure_id', params.id);
     return account
   }
 
 
   async update ({ params, request, response }) {
-    const data = request.all()
-    const user = auth.user
-    const roles = await user.getRoles()
+    const data = request.all();
+    const user = auth.user;
+    const roles = await user.getRoles();
 
     try {
 
-      const account = await Account.findByOrFail('secure_id', params.id)
+      const account = await Account.findByOrFail('secure_id', params.id);
 
       if (account.id === user.account_id || roles.includes("master")) {
-        account.merge(data)
+        account.merge(data);
 
-        await account.save()
+        await account.save();
 
         return account
 
