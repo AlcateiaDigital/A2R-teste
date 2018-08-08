@@ -7,11 +7,7 @@ class Product extends Model {
   static boot () {
     super.boot()
 
-    this.addHook('beforeSave', async (productInstance) => {
-      if (!productInstance.secure_id) {
-        productInstance.secure_id = uuidv4()
-      }
-    })
+    this.addHook('beforeCreate', 'CommonHook.getSecureId')
   }
 
   menuOption () {

@@ -7,11 +7,7 @@ class MenuOption extends Model {
   static boot () {
     super.boot()
 
-    this.addHook('beforeSave', async (menuOptionInstance) => {
-      if (!menuOptionInstance.secure_id) {
-        menuOptionInstance.secure_id = uuidv4()
-      }
-    })
+    this.addHook('beforeCreate', 'CommonHook.getSecureId')
   }
 
   seller () {

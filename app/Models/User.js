@@ -8,14 +8,8 @@ class User extends Model {
   static boot () {
     super.boot()
 
-    /**
-     * A hook to hash the user password before saving
-     * it to the database.
-     */
+    this.addHook('beforeCreate', 'CommonHook.getSecureId')
     this.addHook('beforeSave', async (userInstance) => {
-      if (!userInstance.secure_id) {
-        userInstance.secure_id = uuidv4()
-      }
       if (userInstance.dirty.password) {
         userInstance.password = await Hash.make(userInstance.password)
       }

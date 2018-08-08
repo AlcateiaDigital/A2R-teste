@@ -8,8 +8,7 @@ const User = use('App/Models/User')
 const uuidv4 = require('uuid/v4');
 class UserSeeder {
   async run () {
-    const account = await Account.create({
-      secure_id: uuidv4(),
+    const master = await Account.create({
       name: 'Easy Food',
       type: 'staff',
       document_type: 'cpf',
@@ -19,19 +18,9 @@ class UserSeeder {
       'legal_name': 'pit dog ltda',
       document_number: '04035065145',
       phone_1: '649777172616',
-      phone_2: '649777111116',
-      address_street: '04',
-      address_street_number: '1800',
-      address_complement: 'Casa Amarela',
-      address_neighborhood: 'São José',
-      address_city: 'São Luis de Montes Belos',
-      address_state: 'GO',
-      address_zipcode: '76100000',
-      address_country: 'BR',
-      latitude: -15.523342,
-      longitude: -49.380585
+      phone_2: '649777111116'
     })
-    await account
+     await master
     .users()
     .create({
       first_name: 'Easy',
@@ -41,7 +30,6 @@ class UserSeeder {
       status: true
     })
     const seller = await Account.create({
-      secure_id: uuidv4(),
       name: 'Seller tal',
       type: 'staff',
       document_type: 'cpf',
@@ -51,7 +39,26 @@ class UserSeeder {
       'legal_name': 'pit dog ltda',
       document_number: '1312456789',
       phone_1: '649777172616',
-      phone_2: '649777111116',
+      phone_2: '649777111116'
+    })
+    await seller
+    .users()
+    .create({
+      first_name: 'Seller',
+      last_name: 'Teste',
+      email: 'seller@food.com',
+      password: '123456',
+      status: true
+    })
+    await seller
+    .seller()
+    .create({
+      type: "Italiana",
+      subtitle: "A melhor massa",
+      name: "Maccheroni Massas",
+      phone_1: "7242652642",
+      minimum_handling_time: 40,
+      maximum_handling_time: 50,
       address_street: '04',
       address_street_number: '1800',
       address_complement: 'Casa Amarela',
@@ -62,15 +69,6 @@ class UserSeeder {
       address_country: 'BR',
       latitude: -15.523342,
       longitude: -49.380585
-    })
-    await seller
-    .users()
-    .create({
-      first_name: 'Seller',
-      last_name: 'Teste',
-      email: 'seller@food.com',
-      password: '123456',
-      status: true
     })
     await User.create({
       first_name: 'Customer',

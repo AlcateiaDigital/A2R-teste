@@ -16,6 +16,7 @@ class SellerController {
 
   async store ({ request, auth, response }) {
     const data = request.all()
+
     try {
       await Seller.query().where('account_id', auth.user.account_id).firstOrFail()
       response.status(422).send({message: 'You already have a seller registered to this account'});
@@ -40,20 +41,26 @@ class SellerController {
 
     const data = request.all()
 
+    const rules = {
+      name: 'required|string',
+    }
+
+    const validation = await validate(data, rules);
+
+    if (validation.fails()) {
+      return response.badReqeust()
+  }
+
     const user = auth.user
-    const roles = await user.getRoles()
 
-    const seller = await Seller.firstOrFail('secure_id', params.id)
-
-    if (seller.account_id === user.account_id || roles.includes("master")) {
+    const seller = await Seller
+    .where('account_id', user.id)
+    .firstOrFail('secure_id', params.id)
 
       seller.merge(data)
       await seller.save()
 
       return seller
-     } else {
-      response.status(401).send();
-    }
   }
 
 }

@@ -43,7 +43,7 @@ Route
   .resource('categories', 'Admin/CategoryController')
   .apiOnly()
   .middleware(['is:master'])
-  
+
     Route
     .resource('accounts', 'Admin/AccountController')
     .apiOnly()
@@ -67,7 +67,7 @@ Route
   .group(() => {
 
     Route
-    .post('oauth/token', 'AuthController.store')
+    .post('login/token', 'AuthController.store')
     Route
     .post('users', 'UserController.store')
 

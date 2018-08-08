@@ -20,6 +20,10 @@ class AccountController {
 
     const account = await Account.create({ ...data})
 
+    const seller = await account
+    .seller()
+    .create({})
+
     return account
   }
 
@@ -38,7 +42,7 @@ class AccountController {
     const roles = await user.getRoles()
 
     try {
-    
+
       const account = await Account.findByOrFail('secure_id', params.id)
 
       if (account.id === user.account_id || roles.includes("master")) {

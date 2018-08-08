@@ -7,13 +7,7 @@ class Account extends Model {
 
   static boot () {
     super.boot()
-
-
-    this.addHook('beforeSave', async (accountInstance) => {
-      if (!accountInstance.secure_id) {
-        accountInstance.secure_id = uuidv4()
-      }
-    })
+    this.addHook('beforeCreate', 'CommonHook.getSecureId')
   }
 
   users () {

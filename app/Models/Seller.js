@@ -7,11 +7,7 @@ class Seller extends Model {
   static boot () {
     super.boot()
 
-    this.addHook('beforeSave', async (sellerInstance) => {
-      if (!sellerInstance.secure_id) {
-        sellerInstance.secure_id = uuidv4()
-      }
-    })
+    this.addHook('beforeCreate', 'CommonHook.getSecureId')
   }
 
   account () {

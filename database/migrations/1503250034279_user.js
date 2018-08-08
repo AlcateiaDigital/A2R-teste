@@ -12,6 +12,8 @@ class UserSchema extends Schema {
       table.integer('account_id').unsigned().references('id').inTable('accounts')
       .onUpdate('CASCADE').onDelete('CASCADE')
       table.string('email', 254).notNullable().unique()
+      table.string('phone_1')
+      table.string('phone_2')
       table.string('avatar')
       table.boolean('status')
       table.string('password', 60).notNullable()
