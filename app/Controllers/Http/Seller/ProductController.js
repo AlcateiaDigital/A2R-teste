@@ -7,7 +7,13 @@ const MenuOption = use('App/Models/MenuOption')
 
 class ProductController {
 
-  async index ({ request, response, view }) {
+  async index ({ request, response, auth }) {
+    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+
+    return await Product
+      .query()
+      .where('seller_id', seller.id)
+      .get()
   }
 
   async store ({ request, auth, response }) {

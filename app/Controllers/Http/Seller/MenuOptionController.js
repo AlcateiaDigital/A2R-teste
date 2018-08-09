@@ -5,7 +5,15 @@ const Seller = use('App/Models/Seller')
 
 class MenuOptionController {
 
-  async index ({ request, response, view }) {
+  async index ({ request, response, auth }) {
+
+    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+
+    return await
+      MenuOption
+        .query()
+        .where('seller_id', seller.id)
+        .get()
   }
 
   async store ({ request, auth, response }) {
@@ -13,9 +21,9 @@ class MenuOptionController {
     const data = request.only(["name", "priority", "slug"])
 
     const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
-    const menuOption = await MenuOption.create({ ...data, seller_id: seller.id })
 
-    return menuOption
+    return await MenuOption.create({...data, seller_id: seller.id})
+
   }
 
 
@@ -24,13 +32,11 @@ class MenuOptionController {
 
     const seller = await Seller.findByOrFail('account_id', userLogged.account_id)
 
-    const menuOption = await menuOption
-    .query()
-    .where('seller_id', seller.id)
-    .firstOrFail('secure_id', params.id)
+    return await menuOption
+      .query()
+      .where('seller_id', seller.id)
+      .firstOrFail('secure_id', params.id)
 
-
-    return menuOption
   }
 
 
