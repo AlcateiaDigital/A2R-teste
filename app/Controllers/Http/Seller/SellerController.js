@@ -45,12 +45,26 @@ class SellerController {
 
     const rules = {
       name: 'required|string',
+      subtitle: 'required|string',
+      type: 'required|string',
+      phone_1: 'required|string',
+      phone_2: 'nullable|string',
+      address_street: 'required|string',
+      address_street_number: 'required|string',
+      address_complement: 'required|string',
+      address_neighborhood: 'required|string',
+      address_city: 'required|string',
+      address_state: 'required|string',
+      address_zipcode: 'required|string',
+      address_country: 'required|string',
+      maximum_handling_time: 'required|numeric',
+      minimum_handling_time: 'required|numeric'
     }
 
     const validation = await validate(data, rules);
-
+    
     if (validation.fails()) {
-      return response.badReqeust()
+      return response.status(422).send(validation._errorMessages)
     }
 
     const user = auth.user
