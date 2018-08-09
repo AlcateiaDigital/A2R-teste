@@ -4,6 +4,7 @@ const Product = use('App/Models/Product')
 const Seller = use('App/Models/Seller')
 const Category = use('App/Models/Category')
 const MenuOption = use('App/Models/MenuOption')
+const { validate } = use('Validator')
 
 class ProductController {
 
@@ -18,8 +19,25 @@ class ProductController {
 
   async store ({ request, auth, response }) {
 
-    const dataProduct = request.only(["name", "description", "price", "status"])
     const data = request.all()
+
+    const rules = {
+      name: 'required|string',
+      description: 'required|string',
+      category_id: 'required|string',
+      menu_option_id: 'required|string',
+      price: 'required|numeric',
+      status: 'required|string'
+    }
+
+    const validation = await validate(data, rules);
+
+    if (validation.fails()) {
+      return response.status(422).send(validation._errorMessages)
+    }
+
+
+    const dataProduct = request.only(["name", "description", "price", "status"])
 
     const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
 

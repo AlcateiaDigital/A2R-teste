@@ -62,7 +62,7 @@ class SellerController {
     }
 
     const validation = await validate(data, rules);
-    
+
     if (validation.fails()) {
       return response.status(422).send(validation._errorMessages)
     }

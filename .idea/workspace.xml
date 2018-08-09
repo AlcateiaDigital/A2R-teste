@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1385bcc3-cdb2-46f2-ac49-d02c42e44686" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Controllers/Http/Seller/SellerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Http/Seller/SellerController.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,26 +26,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="731" />
+          <entry key="js" value="811" />
           <entry key="txt" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="731" />
+          <entry key="JavaScript" value="811" />
           <entry key="PLAIN_TEXT" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="1" />
-          <entry key="js" value="15" />
+          <entry key="js" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="1" />
-          <entry key="JavaScript" value="15" />
+          <entry key="JavaScript" value="16" />
         </counts>
       </usages-collector>
     </session>
@@ -54,16 +55,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/SellerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="818">
-              <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+            <state relative-caret-position="69">
+              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>street</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>street_number</replace>
+      <replace>complement</replace>
+      <replace>neighborhood</replace>
+      <replace>city</replace>
+      <replace>state</replace>
+      <replace>zipcode</replace>
+      <replace>country</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,8 +101,8 @@
         <option value="$PROJECT_DIR$/app/Controllers/Http/Admin/AccountController.js" />
         <option value="$PROJECT_DIR$/database/migrations/1533240329150_menu_option_schema.js" />
         <option value="$PROJECT_DIR$/app/Controllers/Http/Seller/MenuOptionController.js" />
-        <option value="$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js" />
         <option value="$PROJECT_DIR$/app/Controllers/Http/Seller/SellerController.js" />
+        <option value="$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js" />
       </list>
     </option>
   </component>
@@ -180,7 +204,7 @@
       <option name="presentableId" value="Default" />
       <updated>1533719196172</updated>
       <workItem from="1533719198843" duration="1538000" />
-      <workItem from="1533791695563" duration="1706000" />
+      <workItem from="1533791695563" duration="1972000" />
     </task>
     <task id="LOCAL-00001" summary="Update Account Controller">
       <created>1533719903636</created>
@@ -193,7 +217,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3244000" />
+    <option name="totallyTimeSpent" value="3510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1616" height="876" extended-state="6" />
@@ -301,13 +325,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/MenuOptionController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -331,8 +348,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/SellerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="818">
-          <caret line="70" column="27" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+        <state relative-caret-position="69">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
         </state>
       </provider>
     </entry>
