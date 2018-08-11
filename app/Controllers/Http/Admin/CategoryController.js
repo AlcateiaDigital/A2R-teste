@@ -5,8 +5,8 @@ const Seller = use('App/Models/Seller')
 
 class CategoryController {
 
-  async index ({ request, response, view }) {
-
+  async index ({ request, response }) {
+    return Category.all()
   }
 
   async store ({ request, auth, response }) {

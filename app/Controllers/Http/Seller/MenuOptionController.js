@@ -43,11 +43,10 @@ class MenuOptionController {
 
 
   async show ({ params, request, auth }) {
-    const userLogged = auth.user
 
-    const seller = await Seller.findByOrFail('account_id', userLogged.account_id)
+    const seller = await Seller.firstOrFail('account_id', auth.user.account_id)
 
-    return await menuOption
+    return await MenuOption
       .query()
       .where('seller_id', seller.id)
       .firstOrFail('secure_id', params.id)
@@ -88,7 +87,7 @@ class MenuOptionController {
 
     return menuOption
   }
-  
+
   async destroy ({ params, request, response }) {
   }
 }

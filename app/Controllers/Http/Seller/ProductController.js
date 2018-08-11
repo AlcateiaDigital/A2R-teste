@@ -26,7 +26,7 @@ class ProductController {
       description: 'required|string',
       category_id: 'required|string',
       menu_option_id: 'required|string',
-      price: 'required|numeric',
+      price: 'required|number',
       status: 'required|string'
     }
 
@@ -38,15 +38,14 @@ class ProductController {
 
 
     const dataProduct = request.only(["name", "description", "price", "status"])
+    const seller = await Seller.firstOrFail('account_id', auth.user.account_id)
 
-    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
-
-    const category = await Category.findByOrFail('secure_id', data.category)
+    const category = await Category.firstOrFail('secure_id', data.category_id)
 
     const menuOption = await MenuOption
     .query()
     .where('seller_id', seller.id)
-    .firstOrFail('secure_id', data.menuOption)
+    .firstOrFail('secure_id', data.menu_option_id)
 
     const product = await Product.create({ ...dataProduct, seller_id: seller.id, category_id: category.id, menu_option_id: menuOption.id})
 
