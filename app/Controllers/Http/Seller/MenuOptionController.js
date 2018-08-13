@@ -11,8 +11,8 @@ class MenuOptionController {
     const data = request.all()
 
     const rules = {
-      name: 'required|unique:menu_options|string',
-      priority: 'required|numeric'
+      //name: 'required|unique:menu_options|string',
+     // priority: 'required|numeric'
     }
 
     const validation = await validate(data, rules);
