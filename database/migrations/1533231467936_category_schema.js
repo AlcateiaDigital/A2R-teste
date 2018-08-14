@@ -8,7 +8,6 @@ class CategorySchema extends Schema {
       table.increments()
       table.string('secure_id').notNullable().unique()
       table.string('name').notNullable().unique()
-      table.string('slug').notNullable().unique()
       table.integer('priority')
       table.timestamps()
     })

@@ -1,7 +1,6 @@
 'use strict'
 
 const Model = use('Model')
-const uuidv4 = require('uuid/v4');
 class Seller extends Model {
 
   static boot () {
@@ -12,6 +11,12 @@ class Seller extends Model {
 
   account () {
     return this.belongsTo('App/Models/Account')
+  }
+  menuOptions () {
+    return this.hasMany('App/Models/MenuOption')
+  }
+  products () {
+    return this.hasMany('App/Models/Product')
   }
 
   static get hidden () {

@@ -5,7 +5,7 @@ const Factory = use('Factory')
 const Database = use('Database')
 const Account = use('App/Models/Account')
 const User = use('App/Models/User')
-const uuidv4 = require('uuid/v4');
+
 class UserSeeder {
   async run () {
     const master = await Account.create({
@@ -36,7 +36,7 @@ class UserSeeder {
       resp_name: 'Toti azevedo',
       resp_document_type: 'cpf',
       resp_document_number: '13131313131',
-      'legal_name': 'pit dog ltda',
+      legal_name: 'pit dog ltda',
       document_number: '1312456789',
       phone_1: '649777172616',
       phone_2: '649777111116'
@@ -67,8 +67,8 @@ class UserSeeder {
       address_state: 'GO',
       address_zipcode: '76100000',
       address_country: 'BR',
-      latitude: -15.523342,
-      longitude: -49.380585
+      address_latitude: -15.523342,
+      address_longitude: -49.380585
     })
     await User.create({
       first_name: 'Customer',

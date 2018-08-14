@@ -5,35 +5,38 @@ const Factory = use('Factory')
 Factory.blueprint('App/Models/Account', async (faker) => {
   return {
     name: faker.name(),
-    type: faker.name(),
+    type: 'seller',
     document_type: 'cpf',
     resp_name: faker.name(),
     resp_document_type: 'cpf',
     resp_document_number: faker.cpf(),
-    'legal_name': faker.last(),
+    legal_name: faker.last(),
     document_number: faker.cpf(),
-    phone_1: faker.number(),
-    phone_2: faker.number()
+    phone_1: faker.phone(),
+    phone_2: faker.phone()
   }
 })
-Factory.blueprint('App/Models/Seller', async (faker) => {
+Factory.blueprint('App/Models/Seller', async (faker, i, data) => {
   return {
     name: faker.name(),
     subtitle: faker.sentence({ words: 5 }),
     account_id: async () => {
+      if (data.account_id) {
+        return data.account_id
+      }
       return (await Factory.model('App/Models/Account').create()).id
     },
-    phone_1: faker.number(),
-    phone_2: faker.number(),
+    phone_1: faker.phone(),
+    phone_2: faker.phone(),
     address_street: faker.street(),
     address_street_number: faker.geohash(),
     address_city:  faker.city(),
     address_state:  faker.state(),
     address_complement:  faker.state(),
     address_neighborhood:  faker.state(),
-    address_country:  faker.state(),
-    address_latitude:  faker.state(),
-    address_altitude:  faker.state(),
+    address_country:  'BR',
+    address_latitude:  faker.latitude(),
+    address_longitude:  faker.longitude(),
     minimum_handling_time:  30,
     maximum_handling_time:  40,
   }
@@ -45,10 +48,33 @@ Factory.blueprint('App/Models/User', async (faker) => {
     account_id: async () => {
       return (await Factory.model('App/Models/Account').create()).id
     },
-    phone_1: faker.number(),
-    phone_2: faker.number(),
+    phone_1: faker.phone(),
+    phone_2: faker.phone(),
     email: faker.email(),
     password: '123456',
     status: true
+  }
+})
+Factory.blueprint('App/Models/Category', async (faker) => {
+  return {
+    name: faker.last(),
+    priority: faker.integer({min: 1, max: 10})
+  }
+})
+Factory.blueprint('App/Models/MenuOption', async (faker) => {
+  return {
+    name: faker.last(),
+    priority: faker.integer({min: 1, max: 10})
+  }
+})
+
+Factory.blueprint('App/Models/Product', async (faker, i, data) => {
+  return {
+    name: faker.name(),
+    description: faker.sentence({ words: 5}),
+    price: faker.floating({ min: 0, max: 100, fixed: 2 }),
+    menu_option_id: data.menu_option_id,
+    status: 'active',
+    category_id: 1
   }
 })

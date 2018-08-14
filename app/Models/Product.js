@@ -15,7 +15,7 @@ class Product extends Model {
   }
 
   seller () {
-    return this.belongsTo('App/Models/Seller  ')
+    return this.belongsTo('App/Models/Seller')
   }
 
   static get hidden () {
