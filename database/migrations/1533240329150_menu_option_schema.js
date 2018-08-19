@@ -11,6 +11,7 @@ class MenuOptionSchema extends Schema {
       .onUpdate('CASCADE').onDelete('CASCADE')
       table.string('name').notNullable().unique()
       table.integer('priority')
+      table.enum('status', ['active', 'inactive']).default('active').notNullable()
       table.timestamps()
     })
   }

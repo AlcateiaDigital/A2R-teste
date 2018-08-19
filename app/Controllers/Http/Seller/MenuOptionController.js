@@ -12,7 +12,8 @@ class MenuOptionController {
 
     const rules = {
       name: 'required|unique:menu_options|string',
-      priority: 'required|numeric'
+      priority: 'required|numeric',
+      status: 'required|string'
     }
 
     const validation = await validate(data, rules);
@@ -63,7 +64,7 @@ class MenuOptionController {
 
     const rules = {
       name: 'required|unique:menu_options|string',
-      priority: 'required|numeric'
+      priority: 'required|number'
     }
 
     const validation = await validate(data, rules);
