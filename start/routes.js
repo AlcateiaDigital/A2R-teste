@@ -30,6 +30,10 @@ Route
   .apiOnly()
   .middleware(['is:(seller || master)'])
 
+  Route
+    .get('menu-options/:id/products', 'Seller/MenuOptionController.getProducts')
+    .middleware(['is:(seller || master)'])
+
 
 
   //  CUSTOMER

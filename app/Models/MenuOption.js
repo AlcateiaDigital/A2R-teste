@@ -1,7 +1,6 @@
 'use strict'
 
 const Model = use('Model')
-const uuidv4 = require('uuid/v4')
 
 class MenuOption extends Model {
   static boot () {
@@ -14,7 +13,7 @@ class MenuOption extends Model {
     return this.belongsTo('App/Models/Seller')
   }
   products () {
-    return this.belongsTo('App/Models/Product')
+    return this.hasMany('App/Models/Product')
   }
 
   static get hidden () {

@@ -8,7 +8,31 @@ class MenuOptionController {
 
   async index ({ request, response, auth }) {
 
-    const data = request.all()
+    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+
+    return await
+      MenuOption
+        .query()
+        .where('seller_id', seller.id)
+        .get()
+
+  }
+
+  async getProducts ({ request, auth, response }) {
+
+    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+    return await
+      MenuOption
+        .query()
+        .where('seller_id', seller.id)
+        .with('products')
+        .fetch()
+
+  }
+
+  async store ({ request, auth, response }) {
+
+    const data = request.only(["name", "priority", "status"])
 
     const rules = {
       name: 'required|unique:menu_options|string',
@@ -21,20 +45,6 @@ class MenuOptionController {
     if (validation.fails()) {
       return response.status(422).send(validation._errorMessages)
     }
-
-
-    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
-
-    return await
-      MenuOption
-        .query()
-        .where('seller_id', seller.id)
-        .get()
-  }
-
-  async store ({ request, auth, response }) {
-
-    const data = request.only(["name", "priority"])
 
     const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
 
