@@ -64,7 +64,7 @@ class MenuOptionController {
 
     const rules = {
       name: 'required|unique:menu_options|string',
-      priority: 'required|number'
+      priority: 'number'
     }
 
     const validation = await validate(data, rules);
@@ -75,16 +75,17 @@ class MenuOptionController {
 
     const userLogged = auth.user
 
-    const seller = await Seller.findByOrFail('account_id', userLogged.account_id)
+    const seller = await Seller
+      .findByOrFail('account_id', userLogged.account_id)
 
-    const menuOption = await menuOption
+    const menuOption = await MenuOption
     .query()
     .where('seller_id', seller.id)
     .firstOrFail('secure_id', params.id)
 
-    MenuOption.merge(data)
+    menuOption.merge(data)
 
-    await MenuOption.save()
+    await menuOption.save()
 
     return menuOption
   }
