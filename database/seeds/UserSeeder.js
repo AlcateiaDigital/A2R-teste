@@ -23,7 +23,8 @@ class UserSeeder {
      await master
     .users()
     .create({
-      name: 'EasyFood',
+      first_name: 'Easy',
+      last_name: 'Food',
       email: 'easy@food.com',
       password: '123456',
       status: 'active'
@@ -43,7 +44,8 @@ class UserSeeder {
     await seller
     .users()
     .create({
-      name: 'Seller',
+      first_name: 'Seller',
+      last_name: 'Food',
       email: 'seller@food.com',
       password: '123456',
       status: 'active'
@@ -69,7 +71,8 @@ class UserSeeder {
       address_longitude: -49.380585
     })
     await User.create({
-      name: 'Customer',
+      first_name: 'Customer',
+      last_name: 'Food',
       email: 'customer@food.com',
       password: '123456',
       status: 'active'

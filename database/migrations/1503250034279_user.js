@@ -7,7 +7,8 @@ class UserSchema extends Schema {
     this.create('users', (table) => {
       table.increments()
       table.string('secure_id').notNullable().unique()
-      table.string('name', 80).notNullable()
+      table.string('first_name', 80).notNullable()
+      table.string('last_name', 80).notNullable()
       table.integer('account_id').unsigned().references('id').inTable('accounts')
       .onUpdate('CASCADE').onDelete('CASCADE')
       table.string('email', 254).notNullable().unique()

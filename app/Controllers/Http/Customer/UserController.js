@@ -7,7 +7,7 @@ class UserController {
 
   async store ({ request, response }) {
 
-    const data = request.only(["name", "email", "password", "phone_1"])
+    const data = request.only(["first_name", "last_name", "email", "password", "phone_1"])
 
     const user = await User.create({...data, status: 'active'})
     const role = await Role.query().where('slug', 'customer').firstOrFail()

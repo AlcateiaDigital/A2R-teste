@@ -43,7 +43,8 @@ Factory.blueprint('App/Models/Seller', async (faker, i, data) => {
 })
 Factory.blueprint('App/Models/User', async (faker) => {
   return {
-    name: faker.name(),
+    first_name: faker.first(),
+    last_name: faker.last(),
     account_id: async () => {
       return (await Factory.model('App/Models/Account').create()).id
     },
