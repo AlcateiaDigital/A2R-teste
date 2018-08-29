@@ -6,24 +6,24 @@ class UserController {
 
   async store ({ request, response }) {
 
-    const data = request.only(["first_name", "last_name", "email", "password", "status", "avatar"])
-    const user = await User.create(data)
+    const data = request.only(["name", "email", "password", "phone_1"])
 
-    return user
+    return await User.create({...data, status: 'active'})
+
   }
 
   async show ({ params, auth, request }) {
 
-    const user = await User
-    .query()
-    .where('id', auth.user.id)
-    .firstOrFail('secure_id', params.id)
-
-    return user
+    return await User
+      .query()
+      .where('id', auth.user.id)
+      .firstOrFail('secure_id', params.id)
   }
 
   async update ({ params, auth, request, response }) {
+
     const data = request.all()
+
     const user = await User
     .query()
     .where('id', auth.user.id)

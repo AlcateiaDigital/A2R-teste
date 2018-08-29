@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1385bcc3-cdb2-46f2-ac49-d02c42e44686" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controllers/Http/Customer/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controllers/Http/Customer/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factory.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/factory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/1503250034278_account_schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/1503250034278_account_schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/1503250034279_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/1503250034279_user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/start/routes.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,34 +24,36 @@
     <session id="289658782">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="895" />
+          <entry key="js" value="1047" />
           <entry key="txt" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="895" />
+          <entry key="JavaScript" value="1047" />
           <entry key="PLAIN_TEXT" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="1" />
-          <entry key="js" value="17" />
+          <entry key="js" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="1" />
-          <entry key="JavaScript" value="17" />
+          <entry key="JavaScript" value="27" />
         </counts>
       </usages-collector>
     </session>
@@ -53,30 +62,12 @@
     <favorites_list name="easyfood-api" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/SellerController.js">
+        <entry file="file://$PROJECT_DIR$/database/factory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="65" column="29" lean-forward="true" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/MenuOptionController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="65" column="21" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="21" />
+            <state relative-caret-position="294">
+              <caret line="70" column="10" lean-forward="true" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -103,14 +94,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/1503250034278_account_schema.js" />
-        <option value="$PROJECT_DIR$/database/factory.js" />
         <option value="$PROJECT_DIR$/app/Controllers/Http/AuthController.js" />
         <option value="$PROJECT_DIR$/app/Controllers/Http/Admin/AccountController.js" />
         <option value="$PROJECT_DIR$/database/migrations/1533240329150_menu_option_schema.js" />
         <option value="$PROJECT_DIR$/app/Controllers/Http/Seller/ProductController.js" />
         <option value="$PROJECT_DIR$/app/Controllers/Http/Seller/MenuOptionController.js" />
         <option value="$PROJECT_DIR$/app/Controllers/Http/Seller/SellerController.js" />
+        <option value="$PROJECT_DIR$/start/routes.js" />
+        <option value="$PROJECT_DIR$/app/Controllers/Http/Customer/UserController.js" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.js" />
+        <option value="$PROJECT_DIR$/database/migrations/1503250034278_account_schema.js" />
+        <option value="$PROJECT_DIR$/database/migrations/1503250034279_user.js" />
+        <option value="$PROJECT_DIR$/database/seeds/UserSeeder.js" />
+        <option value="$PROJECT_DIR$/database/factory.js" />
       </list>
     </option>
   </component>
@@ -131,10 +127,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -142,7 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,19 +159,23 @@
             <path>
               <item name="easyfood-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="easyfood-api" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easyfood-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easyfood-api" type="462c0819:PsiDirectoryNode" />
+              <item name="start" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../easyfood-web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -205,6 +204,8 @@
       <updated>1533719196172</updated>
       <workItem from="1533719198843" duration="1538000" />
       <workItem from="1533791695563" duration="5739000" />
+      <workItem from="1535427275002" duration="2532000" />
+      <workItem from="1535560644015" duration="779000" />
     </task>
     <task id="LOCAL-00001" summary="Update Account Controller">
       <created>1533719903636</created>
@@ -217,13 +218,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7277000" />
+    <option name="totallyTimeSpent" value="10588000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865228" visible="true" weight="0.19898605" />
-      <window_info id="Structure" order="1" sideWeight="0.5013477" side_tool="true" weight="0.19898605" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4973046" visible="true" weight="0.1989425" />
+      <window_info id="Structure" order="1" sideWeight="0.50269544" side_tool="true" weight="0.19898605" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5013477" side_tool="true" weight="0.19898605" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -254,20 +256,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Update Account Controller" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/1503250034278_account_schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/UserSeeder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-529">
-          <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/faker/lib/random.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -310,27 +298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/factory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/WsSeeder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/start/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="8" selection-start-line="7" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/1533240329150_menu_option_schema.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -345,17 +312,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="34" column="8" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/WsSeeder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-810">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UserSeeder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1132">
+          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/1503250034279_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/1503250034278_account_schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/MenuOptionController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="65" column="21" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="21" />
+        <state relative-caret-position="593">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/start/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Customer/UserController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controllers/Http/Seller/SellerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="65" column="29" lean-forward="true" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+        <state relative-caret-position="41">
+          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="70" column="10" lean-forward="true" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
         </state>
       </provider>
     </entry>

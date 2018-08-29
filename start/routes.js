@@ -37,10 +37,12 @@ Route
 
 
   //  CUSTOMER
+  Route
+    .get('users', 'Customer/UserController.store')
     Route
-    .get('users/:id', 'UserController.show')
+    .get('users/:id', 'Customer/UserController.show')
     Route
-    .put('users/:id', 'UserController.update')
+    .put('users/:id', 'Customer/n UserController.update')
 
     // ADMIN
     Route

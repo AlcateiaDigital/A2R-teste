@@ -8,7 +8,7 @@ class AccountSchema extends Schema {
       table.increments()
       table.string('secure_id').notNullable().unique()
       table.string('name', 80).notNullable()
-      table.enum('type', ['seller', 'staff'])
+      table.enum('type', ['seller', 'master'])
       table.string('legal_name', 80)
       table.string('resp_name', 80).notNullable()
       table.enum('resp_document_type', ['cpf', 'cnpj'])
