@@ -1,14 +1,19 @@
 'use strict'
 
 const User = use('App/Models/User')
+const Role = use('App/Models/Role')
 
 class UserController {
 
   async store ({ request, response }) {
 
     const data = request.only(["name", "email", "password", "phone_1"])
-
-    return await User.create({...data, status: 'active'})
+    const user = await User.create({...data, status: 'active'})
+    return user
+    const role = Role.firstOrFail('slug', 'customer')
+    return role
+    await user.roles().a
+    return
 
   }
 
