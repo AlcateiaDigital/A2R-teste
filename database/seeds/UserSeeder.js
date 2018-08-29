@@ -10,7 +10,7 @@ class UserSeeder {
   async run () {
     const master = await Account.create({
       name: 'Easy Food',
-      type: 'staff',
+      type: 'master',
       document_type: 'cpf',
       resp_name: 'Adham Wynston',
       resp_document_type: 'cpf',
@@ -26,11 +26,11 @@ class UserSeeder {
       name: 'EasyFood',
       email: 'easy@food.com',
       password: '123456',
-      status: true
+      status: 'active'
     })
     const seller = await Account.create({
       name: 'Seller tal',
-      type: 'staff',
+      type: 'seller',
       document_type: 'cpf',
       resp_name: 'Toti azevedo',
       resp_document_type: 'cpf',

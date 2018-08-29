@@ -44,6 +44,7 @@ Route
     Route
     .put('users/:id', 'Customer/n UserController.update')
 
+
     // ADMIN
     Route
   .resource('categories', 'Admin/CategoryController')
