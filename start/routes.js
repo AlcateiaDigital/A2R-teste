@@ -39,8 +39,10 @@ Route
   //  CUSTOMER
     Route
     .get('users/:id', 'Customer/UserController.show')
+      .middleware(['is:customer'])
     Route
     .put('users/:id', 'Customer/n UserController.update')
+      .middleware(['is:customer'])
 
 
     // ADMIN
