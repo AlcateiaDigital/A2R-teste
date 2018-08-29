@@ -37,8 +37,6 @@ Route
 
 
   //  CUSTOMER
-  Route
-    .get('users', 'Customer/UserController.store')
     Route
     .get('users/:id', 'Customer/UserController.show')
     Route
@@ -76,7 +74,7 @@ Route
     Route
     .post('login/token', 'AuthController.store')
     Route
-    .post('users', 'UserController.store')
+    .post('users', 'Customer/UserController.store')
 
   })
   .prefix('api/v1')
