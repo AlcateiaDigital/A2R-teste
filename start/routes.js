@@ -18,9 +18,6 @@ Route
   .put('sellers/:id', 'Seller/SellerController.update')
 
   Route
-  .get('sellers/:id', 'Seller/SellerController.show')
-
-  Route
   .resource('seller/users', 'Seller/UserController')
   .apiOnly()
   .middleware(['is:(seller || master)'])
@@ -44,6 +41,13 @@ Route
     .put('users/:id', 'Customer/n UserController.update')
       .middleware(['is:customer'])
 
+      Route
+      .get('sellers', 'Customer/SellerController.index')
+      .middleware(['is:customer'])
+
+      Route
+      .get('sellers/:id', 'Customer/SellerController.show')
+      .middleware(['is:customer'])
 
     // ADMIN
     Route
