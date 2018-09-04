@@ -31,6 +31,10 @@ class User extends Model {
   permissions () {
     return this.hasMany('Adonis/Acl/Permission')
   }
+  addresses () {
+    return this.hasMany('App/Models/UserAddress')
+  }
+
   static get hidden () {
     return ['password', 'id', 'account_id']
   }
