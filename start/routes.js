@@ -32,6 +32,11 @@ Route
       .put('users/:id', 'UserController.update')
       .middleware(['is:customer'])
 
+      Route
+      .resource('addresses', 'UserAddressController')
+      .apiOnly()
+      .middleware(['is:customer'])
+
 
     // SELLER
     Route
@@ -56,12 +61,6 @@ Route
       .resource('categories', 'CategoryController')
       .apiOnly()
       .middleware(['is:master'])
-
-    // ADDRESSES
-    Route
-      .resource('addresses', 'UserAddressController')
-      .apiOnly()
-      .middleware(['is:customer'])
 
     // ACCOUNT
     Route

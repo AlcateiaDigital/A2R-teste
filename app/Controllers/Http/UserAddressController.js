@@ -2,14 +2,11 @@
 const UserAddress = use('App/Models/UserAddress')
 class UserAddressController {
 
-  async store({
-    request,
-    response,
-    auth
-  }) {
+  async store({ request, response, auth }) {
 
     const data = request.only(
-      ["name",
+      [
+        "name",
         "street",
         "street_number",
         "complement",
@@ -27,9 +24,11 @@ class UserAddressController {
     const address = new UserAddress()
 
     address.fill(data)
-    address.merge({ user_id: user.id })
+    address.merge({
+      user_id: user.id
+    })
     address.save()
-    
+
     return address
 
   }
