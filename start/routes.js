@@ -29,7 +29,7 @@ Route
       .get('users/:id', 'UserController.show')
       .middleware(['is:customer'])
     Route
-      .put('users/:id', 'n UserController.update')
+      .put('users/:id', 'UserController.update')
       .middleware(['is:customer'])
 
 
