@@ -1,6 +1,16 @@
 'use strict'
+
 const UserAddress = use('App/Models/UserAddress')
+
 class UserAddressController {
+
+  async index ({ request, response, auth }) {
+
+    return await UserAddress
+      .query()
+      .where('user_id',auth.user.id)
+      .get()
+  }
 
   async store({ request, response, auth }) {
 
