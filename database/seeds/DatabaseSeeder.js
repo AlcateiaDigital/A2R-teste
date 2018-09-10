@@ -11,6 +11,7 @@
 */
 
 const Factory = use('Factory')
+const MenuOption = use('App/Models/MenuOption')
 
 class DatabaseSeeder {
   async run () {
@@ -19,9 +20,17 @@ class DatabaseSeeder {
     .model('App/Models/Category')
     .createMany(10)
 
-    await Factory
-    .model('App/Models/Seller')
-    .createMany(30)
+    for(let i = 0; i < 10; i++) {
+
+      const seller = await Factory.model('App/Models/Seller').create()
+
+        const menuOptions = await Factory.model('App/Models/MenuOption').makeMany(5)
+        await seller.menuOptions().saveMany(menuOptions)
+
+          const products = await Factory.model('App/Models/Product').makeMany(5)
+          await seller.products().saveMany(products)
+
+    }
 
   }
 }

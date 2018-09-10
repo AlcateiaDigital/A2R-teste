@@ -13,8 +13,6 @@ class ProductSchema extends Schema {
       .onUpdate('CASCADE').onDelete('CASCADE')
       table.integer('category_id').unsigned().references('id').inTable('categories')
       .onUpdate('CASCADE').onDelete('CASCADE')
-      table.integer('menu_option_id').unsigned().references('id').inTable('menu_options')
-      .onUpdate('CASCADE').onDelete('CASCADE')
       table.decimal('price').notNullable()
       table.decimal('sale_price')
       table.string('picture_url')

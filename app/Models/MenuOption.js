@@ -9,11 +9,14 @@ class MenuOption extends Model {
     this.addHook('beforeCreate', 'CommonHook.getSecureId')
   }
 
+  products () {
+    return this.belongsToMany('App/Models/Product', 'menu_option_id', 'product_id', 'id', 'id')
+      .pivotTable('menu_products')
+      .withTimestamps()
+  }
+
   seller () {
     return this.belongsTo('App/Models/Seller')
-  }
-  products () {
-    return this.hasMany('App/Models/Product')
   }
 
   static get hidden () {

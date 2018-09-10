@@ -19,6 +19,7 @@ Factory.blueprint('App/Models/Account', async (faker) => {
 Factory.blueprint('App/Models/Seller', async (faker, i, data) => {
   return {
     name: faker.name(),
+    type: 'pizzaria',
     subtitle: faker.sentence({ words: 5 }),
     account_id: async () => {
       if (data.account_id) {
@@ -76,7 +77,6 @@ Factory.blueprint('App/Models/Product', async (faker, i, data) => {
     name: faker.name(),
     description: faker.sentence({ words: 5}),
     price: faker.floating({ min: 0, max: 100, fixed: 2 }),
-    menu_option_id: data.menu_option_id,
     status: 'active',
     category_id: 1
   }

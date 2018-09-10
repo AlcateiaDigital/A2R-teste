@@ -10,8 +10,10 @@ class Product extends Model {
     this.addHook('beforeCreate', 'CommonHook.getSecureId')
   }
 
-  menuOption () {
-    return this.belongsTo('App/Models/MenuOption')
+  menuProducts () {
+    return this.belongsToMany('App/Models/MenuOption')
+      .pivotTable('menu_products')
+      .withTimestamps()
   }
 
   seller () {
