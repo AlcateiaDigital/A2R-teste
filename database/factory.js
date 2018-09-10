@@ -36,6 +36,7 @@ Factory.blueprint('App/Models/Seller', async (faker, i, data) => {
     address_state:  faker.state(),
     address_complement:  faker.state(),
     address_neighborhood:  faker.state(),
+    address_zipcode: '76100000',
     address_country:  'BR',
     address_latitude:  faker.latitude(),
     address_longitude:  faker.longitude(),
