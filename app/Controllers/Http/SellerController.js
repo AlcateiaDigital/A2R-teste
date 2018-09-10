@@ -7,11 +7,13 @@ class SellerController {
 
   async index ({ request }) {
 
-    const { zipcode } = request.all()
+    const { page } = request.only('page') || 1
+    const filter = request.only(['address_zipcode', 'type'])
 
     const sellers = Seller.query()
-      .nearBy(zipcode)
-      .fetch()
+    .where(filter)
+    .select('secure_id', 'type', 'name', 'rating', 'minimum_handling_time', 'maximum_handling_time', 'image_url')
+    .paginate(page, 10)
 
     return sellers
   }
