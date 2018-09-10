@@ -26,6 +26,7 @@ Factory.blueprint('App/Models/Seller', async (faker, i, data) => {
       }
       return (await Factory.model('App/Models/Account').create()).id
     },
+    raring: faker.floating({min: 1, max: 5}),
     phone_1: faker.phone(),
     phone_2: faker.phone(),
     image_url: faker.url({extensions: ['jpg', 'png']}),
