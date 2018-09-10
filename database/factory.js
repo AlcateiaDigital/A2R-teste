@@ -62,7 +62,8 @@ Factory.blueprint('App/Models/User', async (faker) => {
 Factory.blueprint('App/Models/Category', async (faker) => {
   return {
     name: faker.last(),
-    priority: faker.integer({min: 1, max: 10})
+    priority: faker.integer({min: 1, max: 10}),
+    image_url: 'https://st2.depositphotos.com/8301258/11963/v/950/depositphotos_119634124-stock-illustration-restaurant-logo-cutlery-design.jpg',
   }
 })
 Factory.blueprint('App/Models/MenuOption', async (faker) => {
