@@ -26,7 +26,7 @@ Factory.blueprint('App/Models/Seller', async (faker, i, data) => {
       }
       return (await Factory.model('App/Models/Account').create()).id
     },
-    raring: faker.floating({min: 1, max: 5}),
+    rating: faker.floating({min: 1, max: 5}),
     phone_1: faker.phone(),
     phone_2: faker.phone(),
     image_url: 'https://st2.depositphotos.com/8301258/11963/v/950/depositphotos_119634124-stock-illustration-restaurant-logo-cutlery-design.jpg',
