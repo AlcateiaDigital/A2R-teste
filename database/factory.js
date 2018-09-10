@@ -28,6 +28,7 @@ Factory.blueprint('App/Models/Seller', async (faker, i, data) => {
     },
     phone_1: faker.phone(),
     phone_2: faker.phone(),
+    image_url: faker.url({extensions: ['jpg', 'png']}),
     address_street: faker.street(),
     address_street_number: faker.geohash(),
     address_city:  faker.city(),

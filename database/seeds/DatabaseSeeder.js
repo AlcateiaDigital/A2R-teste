@@ -18,6 +18,11 @@ class DatabaseSeeder {
     await Factory
     .model('App/Models/Category')
     .createMany(10)
+
+    await Factory
+    .model('App/Models/Seller')
+    .createMany(30)
+
   }
 }
 

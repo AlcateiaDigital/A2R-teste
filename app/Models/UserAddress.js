@@ -9,10 +9,13 @@ class UserAddress extends Model {
     this.addHook('beforeCreate', 'CommonHook.getSecureId')
   }
 
+
+
   static get hidden () {
-    return ['id']
+    return ['id', 'user_id']
   }
-  
+
+
 }
 
 module.exports = UserAddress

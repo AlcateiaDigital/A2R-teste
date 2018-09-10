@@ -58,6 +58,13 @@ Route
 
     // CATEGORY
     Route
+    .get('categories', 'CategoryController.index')
+
+    Route
+    .post('categories', 'CategoryController.store')
+    .middleware(['is:master'])
+
+    Route
       .resource('categories', 'CategoryController')
       .apiOnly()
       .middleware(['is:master'])

@@ -1,7 +1,6 @@
 'use strict'
 
 const Model = use('Model')
-const uuidv4 = require('uuid/v4')
 
 class Category extends Model {
   static boot () {
