@@ -10,8 +10,6 @@ class ProductOptionSchema extends Schema {
       table.string('name').notNullable()
       table.integer('product_id').unsigned().references('id').inTable('products')
       .onUpdate('CASCADE').onDelete('CASCADE')
-      table.integer('seller_id').unsigned().references('id').inTable('sellers')
-      .onUpdate('CASCADE').onDelete('CASCADE')
       table.integer('minimum_quantity')
       table.integer('maximum_quantity')
       table.boolean('required').default(true)

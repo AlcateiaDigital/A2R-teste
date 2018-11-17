@@ -5,6 +5,13 @@ const Route = use('Route')
 Route
   .group(() => {
 
+    // PERMISSION
+
+    Route
+      .resource('permissions', 'PermissionController')
+      .apiOnly()
+      .middleware(['is:master'])
+
     // PRODUCTS
     Route
       .resource('products', 'ProductController')

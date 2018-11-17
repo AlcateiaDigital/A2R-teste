@@ -28,6 +28,7 @@ class SellerSchema extends Schema {
       table.decimal('rating')
       table.integer('minimum_handling_time')
       table.integer('maximum_handling_time')
+      table.boolean('working').notNullable().defaultTo(0)
       table.timestamps()
     })
   }
