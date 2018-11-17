@@ -7,10 +7,13 @@ class AuthController {
     const { email, password } = request.all()
 
     const token = await auth.attempt(email, password)
+
     const user = await User
       .query()
+      .with('addresses')
       .where('email', email)
       .firstOrFail('password', password)
+
     return {...token, user}
   }
 }
