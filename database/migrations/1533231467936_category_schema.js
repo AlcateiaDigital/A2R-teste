@@ -8,7 +8,7 @@ class CategorySchema extends Schema {
       table.increments()
       table.string('secure_id').notNullable().unique()
       table.string('name').notNullable().unique()
-      table.string('image_url')
+      table.string('picture_url')
       table.integer('priority')
       table.timestamps()
     })

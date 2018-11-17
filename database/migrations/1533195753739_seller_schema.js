@@ -14,7 +14,7 @@ class SellerSchema extends Schema {
       table.string('subtitle')
       table.string('phone_1')
       table.string('phone_2')
-      table.string('image_url')
+      table.string('picture_url')
       table.string('address_street')
       table.string('address_street_number')
       table.string('address_complement')
