@@ -28,7 +28,7 @@ class Seller extends Model {
       + sin(radians(${latitude}))
       * sin(radians(latitude))))` */
     return query
-    .select('secure_id', 'type', 'name', 'rating', 'minimum_handling_time', 'maximum_handling_time', 'image_url')
+    .select('secure_id', 'type', 'name', 'rating', 'minimum_handling_time', 'maximum_handling_time', 'picture_url')
     .where('address_zipcode', zipcode)
 /*     return query
       .select('*', Database.raw(`${haversine} as distance`))
