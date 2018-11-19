@@ -30,7 +30,7 @@ Factory.blueprint('App/Models/Seller', async (faker, i, data) => {
     rating: faker.floating({min: 1, max: 5}),
     phone_1: faker.phone(),
     phone_2: faker.phone(),
-    image_url: 'https://st2.depositphotos.com/8301258/11963/v/950/depositphotos_119634124-stock-illustration-restaurant-logo-cutlery-design.jpg',
+    picture_url: 'https://st2.depositphotos.com/8301258/11963/v/950/depositphotos_119634124-stock-illustration-restaurant-logo-cutlery-design.jpg',
     address_street: faker.street(),
     address_street_number: faker.geohash(),
     address_city:  faker.city(),
@@ -63,7 +63,7 @@ Factory.blueprint('App/Models/Category', async (faker) => {
   return {
     name: faker.last(),
     priority: faker.integer({min: 1, max: 10}),
-    image_url: 'https://st2.depositphotos.com/8301258/11963/v/950/depositphotos_119634124-stock-illustration-restaurant-logo-cutlery-design.jpg',
+    picture_url: 'https://st2.depositphotos.com/8301258/11963/v/950/depositphotos_119634124-stock-illustration-restaurant-logo-cutlery-design.jpg',
   }
 })
 Factory.blueprint('App/Models/MenuOption', async (faker) => {
