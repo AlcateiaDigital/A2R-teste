@@ -28,7 +28,7 @@ class UserAddressController {
         "latitude",
         "longitude"
       ])
-
+  
     const user = await auth.getUser()
 
     const address = new UserAddress()

@@ -43,6 +43,16 @@ Route
       .resource('addresses', 'UserAddressController')
       .apiOnly()
       .middleware(['is:customer'])
+      .validator(new Map([
+        [
+          ['addresses.store'],
+          ['StoreUserAddress']
+        ],
+        [
+          ['addresses.update'],
+          ['StoreUserAddress']
+        ]
+      ]))
 
 
     // SELLER
