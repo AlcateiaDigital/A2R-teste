@@ -65,10 +65,6 @@ Route
       .middleware(['is:(seller || master)'])
 
     Route
-      .get('sellers', 'SellerController.index')
-      .middleware(['is:customer'])
-
-    Route
       .get('sellers/:id', 'SellerController.show')
       .middleware(['is:customer'])
 
@@ -108,7 +104,9 @@ Route
 
 Route
   .group(() => {
-
+    Route
+      .get('sellers', 'SellerController.index')
+      
     Route
       .post('login/token', 'AuthController.store')
     Route
