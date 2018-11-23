@@ -6,21 +6,10 @@ const { validate } = use('Validator')
 
 class MenuOptionController {
 
-  async index ({ request, response, auth }) {
+  async index ({ params, request, response, auth }) {
 
-    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+    const seller = await Seller.findByOrFail('secure_id', params.sellerId)
 
-    return await
-      MenuOption
-        .query()
-        .where('seller_id', seller.id)
-        .get()
-
-  }
-
-  async getProducts ({ request, auth, response }) {
-
-    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
     return await
       MenuOption
         .query()

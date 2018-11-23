@@ -22,17 +22,13 @@ class ProductController {
     const data = request.all()
 
     const rules = {
-      name: 'required|string',
-      description: 'required|string',
-      category_id: 'required|string',
-      menu_option_id: 'required|string',
-      price: 'required|number',
-      status: 'required|string'
+
     }
 
     const validation = await validate(data, rules);
 
     if (validation.fails()) {
+      return validation
       return response.status(422).send(validation._errorMessages)
     }
 

@@ -2,6 +2,17 @@
 
 const User = use('App/Models/User')
 
+var firebase = require("firebase")
+
+var config = {
+  apiKey: "<API_KEY>",
+  authDomain: "<PROJECT_ID>.firebaseapp.com",
+  databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+  storageBucket: "<BUCKET>.appspot.com",
+};
+
+firebase.initializeApp(config);
+
 class AuthController {
   async store ({ request, auth }) {
     const { email, password } = request.all()
@@ -16,6 +27,11 @@ class AuthController {
 
     return {...token, user}
   }
+
+  async fire ({  }) {
+    console.log(firebase.auth())
+  }
+
 }
 
 module.exports = AuthController

@@ -19,17 +19,6 @@ Route
       .middleware(['is:(seller || master)'])
 
 
-    // MENU OPTIONS
-    Route
-      .resource('menu-options', 'MenuOptionController')
-      .apiOnly()
-      .middleware(['is:(seller || master)'])
-
-    Route
-      .get('menu-options/:id/products', 'MenuOptionController.getProducts')
-      .middleware(['is:(seller || master)'])
-
-
     // USER
 
     Route
@@ -72,6 +61,26 @@ Route
       .get('sellers/:id', 'SellerController.show')
       .middleware(['is:customer'])
 
+      
+    // MENU OPTIONS
+    Route
+    .get('sellers/:sellerId/menu-options', 'MenuOptionController.index')
+    .middleware(['is:customer'])
+
+    Route
+    .get('sellers/:sellerId/menu-options/:id', 'MenuOptionController.show')
+    .middleware(['is:customer'])
+
+
+    Route
+    .post('menu-options/:id/products', 'ProductController.store')
+    .middleware(['is:(seller || master)', 'StoreProduct'])
+
+    Route
+    .post('menu-options/:id/products', 'ProductController.update')
+    .middleware(['is:(seller || master)', 'UpdateProduct'])
+
+
 
     // CATEGORY
     Route
@@ -108,6 +117,10 @@ Route
 
 Route
   .group(() => {
+
+
+    Route
+      .get('firebase', 'AuthController.fire')
 
     Route
       .post('login/token', 'AuthController.store')
