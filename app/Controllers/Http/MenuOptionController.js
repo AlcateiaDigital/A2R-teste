@@ -15,6 +15,7 @@ class MenuOptionController {
         .query()
         .where('seller_id', seller.id)
         .with('products')
+        .orderBy('priority')
         .fetch()
 
   }

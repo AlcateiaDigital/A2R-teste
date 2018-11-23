@@ -9,7 +9,7 @@ class MenuOptionSchema extends Schema {
       table.string('secure_id').notNullable().unique()
       table.integer('seller_id').unsigned().references('id').inTable('sellers')
       .onUpdate('CASCADE').onDelete('CASCADE')
-      table.string('name').notNullable().unique()
+      table.string('name').notNullable()
       table.integer('priority')
       table.enum('status', ['active', 'inactive']).default('active').notNullable()
       table.timestamps()
