@@ -21,7 +21,6 @@ class AuthController {
 
     const user = await User
       .query()
-      .with('addresses')
       .where('email', email)
       .firstOrFail('password', password)
 
