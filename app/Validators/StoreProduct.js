@@ -13,7 +13,6 @@ class StoreProduct {
       name: 'required|string',
       description: 'required|string',
       category_id: 'required|string',
-      menu_option_id: 'required|string',
       price: 'required|number',
       status: 'required|string'
     }
