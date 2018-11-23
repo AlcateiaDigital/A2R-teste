@@ -23,7 +23,7 @@ class ProductController {
 
     const dataProduct = request.only(["name", "description", "price", "status"])
 
-    const seller = await Seller.firstOrFail('account_id', params.sellerId)
+    const seller = await Seller.firstOrFail('secure_id', params.sellerId)
 
     const category = await Category.firstOrFail('secure_id', data.category_id)
 
@@ -32,7 +32,9 @@ class ProductController {
     .where('seller_id', seller.id)
     .firstOrFail('secure_id', params.menuOptionId)
 
-    const product = await Product.create({ ...dataProduct, seller_id: seller.id, category_id: category.id, menu_option_id: menuOption.id})
+    const product = await Product.create({ ...dataProduct, seller_id: seller.id, category_id: category.id })
+    
+    await menuOption.products().attach([product.id])
 
     return product
   }
@@ -59,20 +61,22 @@ class ProductController {
 
     const data = request.all()
 
-    const seller = await Seller.findByOrFail('account_id', auth.user.account_id)
+    const seller = await Seller.firstOrFail('secure_id', params.sellerId)
+
+    const menuOption = await MenuOption
+    .query()
+    .where('seller_id', seller.id)
+    .firstOrFail('secure_id', params.menuOptionId)
+
 
     const product = await Product
     .query()
     .where('seller_id', seller.id)
     .firstOrFail('secure_id', params.id)
-/*
-    const category = await Category.findByOrFail('secure_id', data.category) */
 
-/*     const menuOption = await MenuOption
-    .query()
-    .where('seller_id', seller.id)
-    .firstOrFail('secure_id', data.menuOption) */
-    product.merge({...dataProduct, })
+    const category = await Category.firstOrFail('secure_id', data.category_id)
+
+    product.merge({...dataProduct })
 
     await product.save()
     return product

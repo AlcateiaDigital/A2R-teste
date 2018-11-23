@@ -2,7 +2,7 @@
 
 const { formatters } = use('Validator')
 
-class StoreAccount {
+class UpdateProduct {
 
   get validateAll () {
     return true
@@ -13,6 +13,7 @@ class StoreAccount {
       name: 'string',
       description: 'string',
       category_id: 'string',
+      menu_option_id: 'string',
       price: 'number',
       status: 'string'
     }
@@ -20,4 +21,4 @@ class StoreAccount {
 
 }
 
-module.exports = StoreAccount
+module.exports = UpdateProduct
