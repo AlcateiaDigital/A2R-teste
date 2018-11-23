@@ -20,6 +20,7 @@
   "private": true,
   "dependencies": {
     "@adonisjs/ace": "^5.0.2",
+    "@adonisjs/ally": "^2.1.2",
     "@adonisjs/auth": "^3.0.5",
     "@adonisjs/bodyparser": "^2.0.3",
     "@adonisjs/cors": "^1.0.6",
@@ -32,6 +33,7 @@
     "@adonisjs/vow": "^1.0.16",
     "adonis-acl": "^1.1.0",
     "faker": "^4.1.0",
+    "firebase": "^5.5.9",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
     "url-parse": "^1.4.4",
