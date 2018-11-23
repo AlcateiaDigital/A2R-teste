@@ -17,31 +17,20 @@ class ProductController {
       .get()
   }
 
-  async store ({ request, auth, response }) {
+  async store ({ params, request, auth, response }) {
 
     const data = request.all()
 
-    const rules = {
-
-    }
-
-    const validation = await validate(data, rules);
-
-    if (validation.fails()) {
-      return validation
-      return response.status(422).send(validation._errorMessages)
-    }
-
-
     const dataProduct = request.only(["name", "description", "price", "status"])
-    const seller = await Seller.firstOrFail('account_id', auth.user.account_id)
+
+    const seller = await Seller.firstOrFail('account_id', params.sellerId)
 
     const category = await Category.firstOrFail('secure_id', data.category_id)
 
     const menuOption = await MenuOption
     .query()
     .where('seller_id', seller.id)
-    .firstOrFail('secure_id', data.menu_option_id)
+    .firstOrFail('secure_id', params.menuOptionId)
 
     const product = await Product.create({ ...dataProduct, seller_id: seller.id, category_id: category.id, menu_option_id: menuOption.id})
 

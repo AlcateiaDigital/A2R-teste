@@ -13,7 +13,6 @@ class StoreAccount {
       name: 'string',
       description: 'string',
       category_id: 'string',
-      menu_option_id: 'string',
       price: 'number',
       status: 'string'
     }

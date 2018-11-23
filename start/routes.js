@@ -73,7 +73,7 @@ Route
 
 
     Route
-    .post('menu-options/:id/products', 'ProductController.store')
+    .post('sellers:/:sellerId/menu-options/:menuOptionId/products', 'ProductController.store')
     .middleware(['is:(seller || master)', 'StoreProduct'])
 
     Route
