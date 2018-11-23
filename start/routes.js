@@ -74,11 +74,13 @@ Route
 
     Route
     .post('sellers/:sellerId/menu-options/:menuOptionId/products', 'ProductController.store')
-    .middleware(['is:(seller || master)', 'StoreProduct'])
+    .middleware(['is:(seller || master)'])
+    .validator('StoreProduct')
 
     Route
     .post('sellers/:sellerId/menu-options/:menuOptionId/products/:id', 'ProductController.update')
     .middleware(['is:(seller || master)', 'UpdateProduct'])
+    .validator('UpdateAccount')
 
 
 
