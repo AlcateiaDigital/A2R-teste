@@ -54,7 +54,7 @@ class UserSeeder {
     .seller()
     .create({
       type: "Italiana",
-      subtitle: "A melhor massa",
+      description: "A melhor massa",
       name: "Maccheroni Massas",
       phone_1: "7242652642",
       minimum_handling_time: 40,

@@ -12,7 +12,17 @@ class SellerController {
 
     const sellers = Seller.query()
     .where(filter)
-    .select('secure_id', 'type', 'name', 'rating', 'minimum_handling_time', 'maximum_handling_time', 'picture_url', 'working')
+      .select(
+      'secure_id',
+      'type',
+      'name',
+      'description',
+      'rating',
+      'minimum_handling_time',
+      'maximum_handling_time',
+      'picture_url', 
+      'working',
+      'delivery_price')
     .paginate(page, 10)
 
     return sellers

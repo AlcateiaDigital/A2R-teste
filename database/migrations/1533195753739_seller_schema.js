@@ -11,7 +11,7 @@ class SellerSchema extends Schema {
       .onUpdate('CASCADE').onDelete('CASCADE')
       table.string('type',30)
       table.string('name', 80)
-      table.string('subtitle')
+      table.string('description')
       table.string('phone_1')
       table.string('phone_2')
       table.string('picture_url')
